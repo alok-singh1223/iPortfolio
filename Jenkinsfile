@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = "your-dockerhub-username/iportfolio"
+        DOCKER_IMAGE = "aa3000/iportfolio"
         DOCKER_TAG = "${BUILD_NUMBER}"
     }
 
