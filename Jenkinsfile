@@ -17,7 +17,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                bat 'docker build -t alok-singh1223/iportfolio:%BUILD_NUMBER% .'
+                bat 'docker build -t aa3000/iportfolio:%BUILD_NUMBER% .'
             }
         }
 
@@ -32,7 +32,7 @@ pipeline {
         ]) {
             bat """
             echo %DOCKER_PASS% | docker login -u %DOCKER_USER% --password-stdin
-            docker push alok-singh1223/iportfolio:%BUILD_NUMBER%
+            docker push aa3000/iportfolio:%BUILD_NUMBER%
             """
         }
     }
