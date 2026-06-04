@@ -41,8 +41,8 @@ pipeline {
         stage('Deploy to Kubernetes') {
             steps {
                 bat '''
-                kubectl set image deployment/iportfolio-deployment \
-                iportfolio=$DOCKER_IMAGE:$DOCKER_TAG
+                kubectl set image deployment/iportfolio-deployment ^
+                 iportfolio=aa3000/iportfolio:%BUILD_NUMBER%
                 '''
             }
         }
