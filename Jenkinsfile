@@ -30,7 +30,7 @@ pipeline {
                         passwordVariable: 'DOCKER_PASS'
                     )
                 ]) {
-                    sh '''
+                    bat '''
                     echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
                     docker push $DOCKER_IMAGE:$DOCKER_TAG
                     '''
@@ -40,7 +40,7 @@ pipeline {
 
         stage('Deploy to Kubernetes') {
             steps {
-                sh '''
+                bat '''
                 kubectl set image deployment/iportfolio-deployment \
                 iportfolio=$DOCKER_IMAGE:$DOCKER_TAG
                 '''
