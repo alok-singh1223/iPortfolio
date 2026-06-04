@@ -11,13 +11,13 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/your-username/iportfolio.git'
+                    url: 'https://github.com/alok-singh1223/iportfolio.git'
             }
         }
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t $DOCKER_IMAGE:$DOCKER_TAG .'
+                bat 'docker build -t alok-singh1223/iportfolio:%BUILD_NUMBER% .'
             }
         }
 
